@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+
+
+
+
+
+
+<body>
+<div th:replace="fragments/bodyHeader :: bodyHeader" />
+
+
+
+<main class="container mt-lg-5 py-5" style="width: 400px;">
+    <img class="mb-4" src="../img/login_image.png" alt="" width="100%">
+    <form class="form-signin" action="/login" th:action method="post">
+      <h1 class="h4 mb-3 fw-normal text-center">어서오세요</h1>
+      <label for="inputName" class="visually-hidden">Name</label>
+      <input type="text" id="inputName" name="name" class="form-control mb-2" placeholder="Name" required autofocus>
+      <label for="inputEmail" class="visually-hidden">Email address</label>
+      <input type="email" id="inputEmail" name="email" class="form-control mb-2" placeholder="Email address" required>
+      <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">회원가입</button>
+      <a href="/" class="text-primary mb-3 text-decoration-none">로그인 하러가기</a>
+    </form>
+  </main>
+
+</body>
+</html>

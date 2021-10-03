@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<nav class="navbar navbar-light bg-light" th:fragment="bodyHeader">
+    <div class="container-md">
+        <a class="navbar-brand">
+            <img src="../img/logo.jpeg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            TodoList
+        </a>
+        <div>
+            <span style="margin-right: 30px;" th:if="${memberName}" th:text="|${memberName}님 반가워요|">김연규님 안녕하세요</span>
+
+            <!-- 로그인 or 로그아웃 -->
+            <a href="logout" th:href="@{/members/signout}">
+                <button class="btn btn-outline-success" type="submit" th:if="${memberName}" th:text="로그아웃">로그아웃</button>
+            </a>
+        </div>
+    </div>
+</nav>
