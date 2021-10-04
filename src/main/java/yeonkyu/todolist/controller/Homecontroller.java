@@ -73,8 +73,8 @@ public class Homecontroller {
         Long categoryId2 = category2.getId();
         Long categoryId3 = category3.getId();
 
-        todoService.enrollTodo(memberId, categoryId1, "기획서 작성", deadline, notification);
-        todoService.enrollTodo(memberId, categoryId2, "영어공부 1시간", deadline, notification);
-        todoService.enrollTodo(memberId, categoryId3, "스쿼트 100개", deadline, notification);
+        todoService.enrollTodo(memberId, categoryId1, "기획서 작성", deadline);
+        todoService.enrollTodo(memberId, categoryId2, "영어공부 1시간", deadline);
+        todoService.enrollTodo(memberId, categoryId3, "스쿼트 100개", deadline);
     }
 }

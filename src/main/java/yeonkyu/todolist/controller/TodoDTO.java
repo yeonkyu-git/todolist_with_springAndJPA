@@ -12,13 +12,15 @@ import java.time.LocalDate;
 @Getter
 public class TodoDTO {
 
+    private Long id;
     private String todoName;
     private LocalDate createAt;
     private LocalDate deadline;
     private NotificationStatus notificationStatus;
     private TodoStatus complete;
 
-    public TodoDTO(String todoName, LocalDate createAt, LocalDate deadline, NotificationStatus notificationSatus, TodoStatus complete) {
+    public TodoDTO(Long id, String todoName, LocalDate createAt, LocalDate deadline, NotificationStatus notificationSatus, TodoStatus complete) {
+        this.id = id;
         this.todoName = todoName;
         this.createAt = createAt;
         this.deadline = deadline;

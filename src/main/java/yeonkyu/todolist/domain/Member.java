@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
+@Getter @Setter
 @NoArgsConstructor
 public class Member {
 

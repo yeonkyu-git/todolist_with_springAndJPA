@@ -35,7 +35,7 @@ public class TodoService {
      * @return
      */
     @Transactional
-    public Long enrollTodo(Long memberId, Long categoryId, String title, LocalDate deadline, LocalDateTime notification) {
+    public Long enrollTodo(Long memberId, Long categoryId, String title, LocalDate deadline) {
         // 엔티티 조회
         Member member = memberRepository.findOne(memberId);
         Category category = categoryRepository.findOne(categoryId);

@@ -62,7 +62,7 @@ public class TodoServiceTest {
         Long categoryId = category1.getId();
 
         //when
-        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline, notification);
+        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline);
 
         //then
         Todo findTodo = todoRepository.findOne(todoId);
@@ -87,8 +87,8 @@ public class TodoServiceTest {
         Long categoryId = category1.getId();
 
         //when
-        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline, notification);
-        Long todoId2 = todoService.enrollTodo(memberId2, categoryId, title, deadline, notification);
+        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline);
+        Long todoId2 = todoService.enrollTodo(memberId2, categoryId, title, deadline);
 
         //then
         Todo findTodo = todoRepository.findOne(todoId);
@@ -114,7 +114,7 @@ public class TodoServiceTest {
         Long categoryId = category1.getId();
 
         //when
-        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline, notification);
+        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline);
         todoService.deleteTodo(todoId);
 
         //then
@@ -133,7 +133,7 @@ public class TodoServiceTest {
         Long categoryId = category1.getId();
 
         //when
-        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline, notification);
+        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline);
         todoService.updateTodoTitle(todoId, "할일변경!");
         Todo findTodo = todoRepository.findOne(todoId);
 
@@ -152,7 +152,7 @@ public class TodoServiceTest {
         Long categoryId = category1.getId();
 
         //when
-        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline, notification);
+        Long todoId = todoService.enrollTodo(memberId, categoryId, title, deadline);
         todoService.updateComplete(todoId);
         Todo findTodo = todoRepository.findOne(todoId);
 
