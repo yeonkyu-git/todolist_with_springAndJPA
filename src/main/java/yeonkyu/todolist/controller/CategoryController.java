@@ -31,14 +31,14 @@ public class CategoryController {
      * @return
      */
     @PostMapping("/category/create")
-    public String createCategory(@RequestParam String categoryName) {
+    public String createCategory(@RequestParam String categoryName, Model model) {
         // Session에 저장된 값 불러오기
         HttpSession session = request.getSession();
         Long memberId = (Long) session.getAttribute("memberId");
         Member findMember = memberService.findOne(memberId);
         Category category = new Category(findMember, categoryName, LocalDateTime.now());
         categoryService.enrollCategory(category);
-        return "todolist"; // 템플릿뷰 만들어야 함
+        return "redirect:/todolist"; // 템플릿뷰 만들어야 함
     }
 
     /**

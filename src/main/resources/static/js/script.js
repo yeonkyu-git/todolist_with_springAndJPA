@@ -43,18 +43,18 @@ function complete(a) {
 }
 
 
+$(document).ready(function() {
+            $("#enrollCategory").keydown(function(key) {
+                if (key.keyCode == 13) {
+                console.log("asdasdasd");
+                        var categoryName = $("#enrollCategory").val();
 
-//    var data=$("#input").val();
-//
-//    var messageDTO={
-//        result:data
-//    };
-//
-//    $.ajax({
-//        url: "/dataSend",
-//        data: messageDTO,
-//        type:"POST",
-//    }).done(function (fragment) {
-//        $("#resultDiv").replaceWith(fragment);
-//    });
+                        $.ajax({
+                            url: "/category/create",
+                            data: {categoryName},
+                            type: "POST",
+                        })
+                }
+            });
+        });
 
