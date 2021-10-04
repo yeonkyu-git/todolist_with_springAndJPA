@@ -18,6 +18,28 @@ function enrollTodo() {
     })
 }
 
+function updateTodo(a) {
+    var todoId = $(a).attr('data-id');
+    $("#todoInputReadOnly"+todoId).addClass("d-none")
+    $("#todoInputWrite"+todoId).removeClass("d-none")
+    $("#todoInputButton"+todoId).removeClass("d-none")
+    $("#todoInputWrite"+todoId).focus();
+
+}
+
+function updateTitleTodo(a){
+        var todoId = $(a).attr('data-id');
+        var title = $("#todoInputWrite"+todoId).val();
+
+        $.ajax({
+            url: "/todolist/update",
+            data: {todoId, title},
+            type: "POST",
+        }).done(function (fragment) {
+                  $('#sample').replaceWith(fragment)
+              })
+}
+
 function deleteTodo(a) {
     var todoId = $(a).attr('data-id');
 
@@ -42,19 +64,16 @@ function complete(a) {
           })
 }
 
+function deleteCategory(a) {
+    var categoryId = $(a).attr('data-id');
+    console.log(categoryId);
 
-$(document).ready(function() {
-            $("#enrollCategory").keydown(function(key) {
-                if (key.keyCode == 13) {
-                console.log("asdasdasd");
-                        var categoryName = $("#enrollCategory").val();
-
-                        $.ajax({
-                            url: "/category/create",
-                            data: {categoryName},
-                            type: "POST",
-                        })
-                }
-            });
-        });
-
+    $.ajax({
+        url: "/category/delete",
+        data: {categoryId},
+        type: "POST",
+        success: function(data, txtStatus) {
+                window.location.href = "http://localhost:8080/todolist"
+            }
+    })
+}

@@ -16,7 +16,7 @@ public class TodoCategory {
     @Column(name = "TODOCATEGORY_ID")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "TODO_ID")
     private Todo todo;
 

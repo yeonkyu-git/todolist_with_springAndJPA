@@ -38,7 +38,7 @@ public class CategoryController {
         Member findMember = memberService.findOne(memberId);
         Category category = new Category(findMember, categoryName, LocalDateTime.now());
         categoryService.enrollCategory(category);
-        return "redirect:/todolist"; // 템플릿뷰 만들어야 함
+        return "redirect:/todolist";
     }
 
     /**
@@ -50,7 +50,7 @@ public class CategoryController {
     @PostMapping("/category/update")
     public String updateCategory(@RequestParam Long categoryId, @RequestParam String categoryName) {
         categoryService.updateCategory(categoryId, categoryName);
-        return "todolist"; // 템플릿뷰 만들어야 함
+        return "todolist";
     }
 
     /**
@@ -61,6 +61,6 @@ public class CategoryController {
     @PostMapping("/category/delete")
     public String deleteCategory(@RequestParam Long categoryId) {
         categoryService.deleteCategory(categoryId);
-        return "todolist"; // 템플릿뷰 만들어야 함
+        return "redirect:/todolist";
     }
 }

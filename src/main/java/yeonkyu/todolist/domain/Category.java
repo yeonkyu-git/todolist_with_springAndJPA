@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,6 +27,10 @@ public class Category {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<TodoCategory> todoCategories = new ArrayList<>();
+
 
     public Category(Member member, String name, LocalDateTime createAt) {
         this.member = member;
