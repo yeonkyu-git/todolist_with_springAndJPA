@@ -51,30 +51,33 @@ public class Homecontroller {
     }
 
 
-    @PostConstruct
-    public void init() {
-        // Member
-        Member member = new Member("주워니", "dusrbpoiiij@naver.com", LocalDateTime.now());
-        memberService.join(member);
-
-        // Category
-        Category category1 = new Category(member, "회사", LocalDateTime.now());
-        Category category2 = new Category(member, "공부", LocalDateTime.now());
-        Category category3 = new Category(member, "운동", LocalDateTime.now());
-        categoryService.enrollCategory(category1);
-        categoryService.enrollCategory(category2);
-        categoryService.enrollCategory(category3);
-
-        // todolist
-        LocalDate deadline = LocalDate.now();
-        LocalDateTime notification = LocalDateTime.now();
-        Long memberId = member.getId();
-        Long categoryId1 = category1.getId();
-        Long categoryId2 = category2.getId();
-        Long categoryId3 = category3.getId();
-
-        todoService.enrollTodo(memberId, categoryId1, "기획서 작성", deadline);
-        todoService.enrollTodo(memberId, categoryId2, "영어공부 1시간", deadline);
-        todoService.enrollTodo(memberId, categoryId3, "스쿼트 100개", deadline);
-    }
+    /**
+     * Test Case
+     */
+//    @PostConstruct
+//    public void init() {
+//        // Member
+//        Member member = new Member("주워니", "dusrbpoiiij@naver.com", LocalDateTime.now());
+//        memberService.join(member);
+//
+//        // Category
+//        Category category1 = new Category(member, "회사", LocalDateTime.now());
+//        Category category2 = new Category(member, "공부", LocalDateTime.now());
+//        Category category3 = new Category(member, "운동", LocalDateTime.now());
+//        categoryService.enrollCategory(category1);
+//        categoryService.enrollCategory(category2);
+//        categoryService.enrollCategory(category3);
+//
+//        // todolist
+//        LocalDate deadline = LocalDate.now();
+//        LocalDateTime notification = LocalDateTime.now();
+//        Long memberId = member.getId();
+//        Long categoryId1 = category1.getId();
+//        Long categoryId2 = category2.getId();
+//        Long categoryId3 = category3.getId();
+//
+//        todoService.enrollTodo(memberId, categoryId1, "기획서 작성", deadline);
+//        todoService.enrollTodo(memberId, categoryId2, "영어공부 1시간", deadline);
+//        todoService.enrollTodo(memberId, categoryId3, "스쿼트 100개", deadline);
+//    }
 }

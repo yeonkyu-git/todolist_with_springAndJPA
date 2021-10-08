@@ -81,7 +81,7 @@ public class todoController {
         model.addAttribute("categories", categories);
         model.addAttribute("todoLists", todoLists);
 
-        return "/todolist/todoList";
+        return "todolist/todoList";
     }
 
     /**
@@ -125,7 +125,7 @@ public class todoController {
 
         model.addAttribute("todoLists", todoLists);
 
-        return "/todolist/todoList :: #sample";
+        return "todolist/todoList :: #sample";
     }
 
     /**
@@ -164,7 +164,7 @@ public class todoController {
 
         model.addAttribute("todoLists", todoLists);
 
-        return "/todolist/todoList :: #sample";
+        return "todolist/todoList :: #sample";
     }
 
     /**
@@ -201,7 +201,7 @@ public class todoController {
 
         model.addAttribute("todoLists", todoLists);
 
-        return "/todolist/todoList :: #sample";
+        return "todolist/todoList :: #sample";
     }
 
 
@@ -232,12 +232,12 @@ public class todoController {
 
         model.addAttribute("todoLists", todoLists);
 
-        return "/todolist/todoList :: #sample";
+        return "todolist/todoList :: #sample";
     }
 
     @GetMapping("/todolist/{categoryId}")
     public String viewTodolistByCategory(@PathVariable String categoryId) {
         System.out.println("CategoryId = " + categoryId);
-        return "/todolist/todoList";
+        return "todolist/todoList";
     }
 }

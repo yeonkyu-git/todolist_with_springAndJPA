@@ -11,6 +11,8 @@ import yeonkyu.todolist.domain.Category;
 import yeonkyu.todolist.domain.Member;
 import yeonkyu.todolist.repository.CategoryRepository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,17 +24,20 @@ import static org.junit.Assert.*;
 public class CategoryServiceTest {
 
     @Autowired
+    MemberService memberService;
+
+    @Autowired
     private CategoryService categoryService;
 
     @Autowired
     private CategoryRepository categoryRepository;
 
-    Member member1 = new Member("joowon", "skyblue9221@gmail.com", LocalDateTime.now());
-
 
     @Test
     public void 카테고리_등록() throws Exception {
         //given
+        Member member1 = getMember();
+
         Category category = new Category(member1, "work", LocalDateTime.now());
 
         //when
@@ -46,6 +51,9 @@ public class CategoryServiceTest {
     @Test(expected = IllegalStateException.class)
     public void 중복등록금지() throws Exception {
         //given
+        Member member1 = getMember();
+
+
         Category category1 = new Category(member1, "work", LocalDateTime.now());
         Category category2 = new Category(member1, "work", LocalDateTime.now());
 
@@ -57,9 +65,12 @@ public class CategoryServiceTest {
         fail("잘못되었습니다.");
     }
 
+
     @Test
     public void 카테고리삭제() throws Exception {
         //given
+        Member member1 = getMember();
+
         Category category1 = new Category(member1, "work", LocalDateTime.now());
         Category category2 = new Category(member1, "study", LocalDateTime.now());
         categoryService.enrollCategory(category1);
@@ -76,6 +87,8 @@ public class CategoryServiceTest {
     @Test
     public void 카테고리수정() throws Exception {
         //given
+        Member member1 = getMember();
+
         Category category1 = new Category(member1, "work", LocalDateTime.now());
         Long categoryId = categoryService.enrollCategory(category1);
 
@@ -87,4 +100,10 @@ public class CategoryServiceTest {
         Assertions.assertThat(category1.getName()).isEqualTo("study");
     }
 
+
+    private Member getMember() {
+        Member member1 = new Member("joowon", "skyblue9221@gmail.com", LocalDateTime.now());
+        memberService.join(member1);
+        return member1;
+    }
 }
